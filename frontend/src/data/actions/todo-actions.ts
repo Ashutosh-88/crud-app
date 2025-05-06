@@ -12,6 +12,12 @@ export const fetchTodos = async (): Promise<Todo[]> => {
   const token = await getAuthToken();
   if (!token) throw new Error("No auth token found");
 
+  const user = await getUserMeLoader();
+  const userDocumentId = user.data.documentId;
+  console.log("-------------------");
+  console.log(user);
+  console.log(userDocumentId);
+
   const url = new URL("/api/todos", STRAPI_URL);
   url.searchParams.append("populate", "users_permissions_user");
 
@@ -22,12 +28,19 @@ export const fetchTodos = async (): Promise<Todo[]> => {
   });
 
   const data = await res.json();
-  return data.data.map((item: any) => ({
-    id: item.id,
-    documentId: item.documentId,
-    text: item.text,
-    completed: item.completed,
-  }));
+  console.log(data.data[0].users_permissions_user.documentId);
+  return data.data
+    .filter(
+      (item: any) =>
+        item.users_permissions_user !== null &&
+        item.users_permissions_user.documentId === userDocumentId
+    )
+    .map((item: any) => ({
+      id: item.id,
+      documentId: item.documentId,
+      text: item.text,
+      completed: item.completed,
+    }));
 };
 
 export const createTodo = async (todo: Omit<Todo, "id" | "documentId">) => {
@@ -44,19 +57,19 @@ export const createTodo = async (todo: Omit<Todo, "id" | "documentId">) => {
   });
 
   const userData = await userResponse.json();
-  const userId = userData.id;
+  const userId = userData.documentId;
   console.log("====================");
   console.log(userData);
   console.log("====================");
   console.log(userId);
   console.log("====================");
 
-  if (!userId) throw new Error("Could not get user ID");
+  if (!userId) throw new Error("Could not get username");
 
   const response = await mutateData("POST", "/api/todos", {
     data: {
       ...todo,
-      // users_permissions_user: userId,
+      users_permissions_user: userId,
     },
   });
 
