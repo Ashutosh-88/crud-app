@@ -6,22 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 
+import { Todo } from "@/data/types/todo";
 import {
   fetchTodos,
   createTodo,
   updateTodo,
   deleteTodo,
 } from "@/data/actions/todo-actions";
-
-interface Todo {
-  id: number;
-  documentId: string;
-  text: string;
-  completed: boolean;
-  createdAt?: string;
-  updatedAt?: string;
-  publishedAt?: string;
-}
 
 export default function TodoForm() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -102,6 +93,7 @@ export default function TodoForm() {
                 onCheckedChange={() =>
                   handleToggle(todo.documentId, todo.completed)
                 }
+                className="cursor-pointer"
               />
               <span
                 className={`flex-1 ${
@@ -114,6 +106,7 @@ export default function TodoForm() {
                 variant="ghost"
                 size="icon"
                 onClick={() => handleDelete(todo.documentId)}
+                className="cursor-pointer"
               >
                 🗑️
               </Button>

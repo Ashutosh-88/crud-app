@@ -3,18 +3,8 @@ import { mutateData } from "@/data/services/mutate-data";
 import { getAuthToken } from "@/data/services/get-token";
 import { getStrapiURL } from "@/lib/utils";
 
+import { Todo } from "../types/todo";
 import { getUserMeLoader } from "../services/get-user-me-loader";
-
-// types/todo.ts
-interface Todo {
-  id: number;
-  documentId: string;
-  text: string;
-  completed: boolean;
-  createdAt?: string;
-  updatedAt?: string;
-  publishedAt?: string;
-}
 
 const STRAPI_URL = getStrapiURL();
 

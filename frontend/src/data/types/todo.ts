@@ -1,4 +1,3 @@
-// types/todo.ts
 export interface Todo {
   id: number;
   documentId: string;
