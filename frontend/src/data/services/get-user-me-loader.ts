@@ -8,11 +8,7 @@ export async function getUserMeLoader() {
   const url = new URL("/api/users/me", baseUrl);
 
   url.search = qs.stringify({
-    populate: {
-      image: {
-        fields: ["url", "alternativeText"],
-      },
-    },
+    populate: "*",
   });
 
   const authToken = await getAuthToken();

@@ -14,9 +14,6 @@ export const fetchTodos = async (): Promise<Todo[]> => {
 
   const user = await getUserMeLoader();
   const userDocumentId = user.data.documentId;
-  console.log("-------------------");
-  console.log(user);
-  console.log(userDocumentId);
 
   const url = new URL("/api/todos", STRAPI_URL);
   url.searchParams.append("populate", "users_permissions_user");
@@ -28,7 +25,7 @@ export const fetchTodos = async (): Promise<Todo[]> => {
   });
 
   const data = await res.json();
-  console.log(data.data[0].users_permissions_user.documentId);
+
   return data.data
     .filter(
       (item: any) =>
