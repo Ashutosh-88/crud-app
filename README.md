@@ -73,7 +73,7 @@ npm run develop
 
 Strapi will open at http://localhost:1337/admin. Create your admin user.
 
-Configure Content Types:
+**_Configure Content Types:_**
 
 - **User (default)**
 
@@ -82,7 +82,7 @@ Configure Content Types:
   - `completed` (Boolean)
   - `user` (Relation: Many-to-One → User)
 
-Enable Public API Permissions:
+**_Enable Public API Permissions:_**
 
 - Go to Settings → Roles → Public/Authenticated
 
@@ -113,8 +113,8 @@ App will run at http://localhost:3000
 
 Includes a Header, Hero Section, Feature Section and Footer.
 
-![Preview_Home1](./crud-app/frontend/public/previewHome1.png)
-![Preview_Home1](./crud-app/frontend/public/previewHome2.png)
+![Preview_Home1](./frontend/public/previewHome1.png)
+![Preview_Home1](./frontend/public/previewHome2.png)
 
 ---
 
@@ -122,9 +122,9 @@ Includes a Header, Hero Section, Feature Section and Footer.
 
 Includes a Sign In and Sign Up Form.
 
-![Preview_SignIn](./crud-app/frontend/public/previewSignIn.png)
+![Preview_SignIn](./frontend/public/previewSignIn.png)
 
-![Preview_SignUp](./crud-app/frontend/public/previewSignUp.png)
+![Preview_SignUp](./frontend/public/previewSignUp.png)
 
 ---
 
@@ -132,7 +132,7 @@ Includes a Sign In and Sign Up Form.
 
 Includes a chart comparing Completed vs Pending todos using Chart.js.
 
-![Preview_DashboardSection](./crud-app/frontend/public/previewDashboardSection.png)
+![Preview_DashboardSection](./frontend/public/previewDashboardSection.png)
 
 ---
 
@@ -140,7 +140,7 @@ Includes a chart comparing Completed vs Pending todos using Chart.js.
 
 Includes a ToDo CRUD feature to add, read added todos, mark as completed and delete.
 
-![Preview_TodoFeature](./crud-app/frontend/public/previewTodoFeature.png)
+![Preview_TodoFeature](./frontend/public/previewTodoFeature.png)
 
 ---
 
@@ -148,7 +148,7 @@ Includes a ToDo CRUD feature to add, read added todos, mark as completed and del
 
 Includes a form to update Account information.
 
-![Preview_AccountSection](./crud-app/frontend/public/previewAccountSection.png)
+![Preview_AccountSection](./frontend/public/previewAccountSection.png)
 
 ---
 
