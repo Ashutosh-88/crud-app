@@ -47,7 +47,7 @@ export default function DashboardLayout({
           </div>
         </div>
       </nav>
-      <main className="flex flex-col overflow-scroll">{children}</main>
+      <main className="flex flex-col overflow-hidden">{children}</main>
     </div>
   );
 }

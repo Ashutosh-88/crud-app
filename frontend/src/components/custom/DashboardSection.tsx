@@ -20,12 +20,14 @@ export async function DashboardSection() {
             <StrapiImage
               src={userData?.image?.url}
               alt={`${userData?.firstName}'s profile pic`}
-              height={200}
-              width={200}
-              className="w-16 h-16 rounded-full object-cover"
+              height={600}
+              width={600}
+              className="w-30 h-30 rounded-full object-cover"
             />
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">
-              {`${userData?.firstName} ${userData?.lastName}`}
+              {userData?.firstName && userData?.lastName
+                ? `${userData.firstName} ${userData.lastName}`
+                : "Fill out Account Form first!"}
             </h2>
             {/* Stats Section */}
             <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4">

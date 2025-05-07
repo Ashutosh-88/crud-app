@@ -41,6 +41,17 @@ export const TaskChart: React.FC<TaskChartProps> = ({ tasks }) => {
     },
   };
 
+  if (tasks.length === 0) {
+    return (
+      <div className="w-full max-w-sm mx-auto h-64">
+        <h2 className="text-2xl font-semibold text-red-800 dark:text-white text-center">
+          !No Tasks to show here!
+        </h2>
+        <Pie data={data} options={options} />
+      </div>
+    );
+  }
+
   return (
     <div className="w-full max-w-sm mx-auto h-64">
       <Pie data={data} options={options} />
